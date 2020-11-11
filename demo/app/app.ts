@@ -23,7 +23,7 @@ if (global.isIOS) {
             Raygun.enableCrashReporting();
             Raygun.enableRealUserMonitoring(true);
  
-            //Raygun.setUser("7ae0cda7-e6ce-4b9e-ab3f-4b0e9645d702", "steve@sitefinitysteve.com", "Steve McNiven-Scott", "Steve");
+            Raygun.setUser("7ae0cda7-e6ce-4b9e-ab3f-4b0e9645d702", "steve@sitefinitysteve.com", "Steve McNiven-Scott", "Steve");
 
 
             return true;
@@ -37,7 +37,7 @@ if (global.isIOS) {
         Raygun.enableCrashReporting();
         Raygun.enableRealUserMonitoring(true);
 
-        //Raygun.setUser("7ae0cda7-e6ce-4b9e-ab3f-4b0e9645d702", "steve@sitefinitysteve.com", "Steve McNiven-Scott", "Steve");
+        Raygun.setUser("7ae0cda7-e6ce-4b9e-ab3f-4b0e9645d702", "steve@sitefinitysteve.com", "Steve McNiven-Scott", "Steve");
     });
 
 

@@ -25,9 +25,24 @@ export class Raygun extends RaygunCommon {
     return RaygunClient.sharedInstance();
   }
 
-  public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, customData?: Array<ICustomData>): void {
+  public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, methodName?: string, customData?: Array<ICustomData>): void {
     let dict: NSDictionary<string, any> = NSDictionary.dictionaryWithDictionary(<any>customData);
-    Raygun.getInstance().recordBreadcrumbWithMessageWithCategoryWithLevelWithCustomData(message, category, level, dict);
+
+    var crumb = new RaygunBreadcrumb({
+      block: () => {
+        message = message;
+      }
+    });
+    crumb.category = category;
+    crumb.level = level;
+
+    if(methodName)
+      crumb.methodName = methodName;
+    
+    if(customData)
+      crumb.customData = dict;
+
+    Raygun.getInstance().recordBreadcrumb(crumb);
     
   }
 

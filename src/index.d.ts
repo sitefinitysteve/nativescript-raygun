@@ -11,7 +11,7 @@ export class Raygun {
     public static send(message: string): void;
 
     //Crash Reporting
-    public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, customData?: any): void;
+    public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, methodName?: string, customData?: Array<ICustomData>): void;
 
     /// RUM https://raygun.com/documentation/language-guides/apple/real-user-monitoring/advanced-setup/
     public static ignoreViews(views: []): void;

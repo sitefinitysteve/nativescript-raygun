@@ -12,8 +12,18 @@ export class Raygun extends RaygunCommon {
     com.raygun.raygun4android.RaygunClient.init(appContext, apiKey, appversion.getVersionNameSync());
   }
 
-  public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, customData?: any): void {
-    console.log("Not implimented on Android");
+  public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, methodName?: string, customData?: any): void {
+    let crumb = new com.raygun.raygun4android.messages.crashreporting.RaygunBreadcrumbMessage.Builder(message)
+      .level(level)
+      .category(category);
+    
+    if (methodName)
+      crumb.methodName(methodName)
+          
+    if (customData)
+      crumb.customData(customData);
+
+    com.raygun.raygun4android.RaygunClient.recordBreadcrumb(crumb.build());
   }
 
   public static setLogLevel(level: RaygunLoggingLevel): void {
@@ -55,7 +65,7 @@ export class Raygun extends RaygunCommon {
   }
 
   public static sendTimingEvent(type: RaygunEventTimingType, name: string, duration: number): void {
-    //Raygun.getInstance().sendTimingEventWithNameWithDuration(type, name, duration);
+    console.log("Raygun: sendTimingEvent not implemented on Android");
   }
 }
 

@@ -14,6 +14,7 @@ export class Raygun {
     public static recordBreadcrumb(message: string, category: string, level: RaygunBreadcrumbLevel, customData?: any): void;
 
     /// RUM https://raygun.com/documentation/language-guides/apple/real-user-monitoring/advanced-setup/
+    public static ignoreViews(views: []): void;
     public static ignoreURLs(urls: []): void;
     public static sendTimingEvent(type: RaygunEventTimingType, name: string, duration: number): void;
 }

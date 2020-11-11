@@ -47,7 +47,11 @@ export class Raygun extends RaygunCommon {
 
   // REAL USER MONITORING
   public static ignoreURLs(urls: []): void {
-    //Raygun.getInstance().ignoreURLs(urls);
+    com.raygun.raygun4android.RaygunClient.ignoreURLs(urls);
+  }
+
+  public static ignoreViews(views: []): void {
+    com.raygun.raygun4android.RaygunClient.ignoreViews(views);
   }
 
   public static sendTimingEvent(type: RaygunEventTimingType, name: string, duration: number): void {

@@ -79,6 +79,10 @@ export class Raygun extends RaygunCommon {
     Raygun.getInstance().ignoreURLs(urls);
   }
 
+  public static ignoreViews(views: []): void {
+    Raygun.getInstance().ignoreViews(views);
+  }
+
   public static sendTimingEvent(type: RaygunEventTimingType, name: string, duration: number): void {
     Raygun.getInstance().sendTimingEventWithNameWithDuration(type, name, duration);
   }

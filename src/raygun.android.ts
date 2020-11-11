@@ -26,7 +26,9 @@ export class Raygun extends RaygunCommon {
   }
 
   public static enableRealUserMonitoring(enableNetworkMonitoring: boolean): void {
-    com.raygun.raygun4android.RaygunClient.enableRUM(android.foregroundActivity, enableNetworkMonitoring);
+    var activity = android.startActivity;
+    debugger;
+    com.raygun.raygun4android.RaygunClient.enableRUM(activity, enableNetworkMonitoring);
     console.log("Raygun: Enabled Real User Monitoring");
   }
 

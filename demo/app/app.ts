@@ -1,4 +1,4 @@
-﻿import { Application } from '@nativescript/core';
+﻿import { Application, ApplicationEventData } from '@nativescript/core';
 import { Raygun } from 'nativescript-raygun';
 
 
@@ -32,7 +32,7 @@ if (global.isIOS) {
 
     Application.ios.delegate = CustomAppDelegate;
 } else {
-    Application.on(Application.launchEvent, (args) => {
+    Application.on(Application.launchEvent, (args: ApplicationEventData) => {
         new Raygun("DH5vEdkOhwB1kCylFiYMg", false);
         Raygun.enableCrashReporting();
         Raygun.enableRealUserMonitoring(true);

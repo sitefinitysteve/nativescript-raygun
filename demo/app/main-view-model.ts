@@ -27,8 +27,8 @@ export class HelloWorldModel extends Observable {
     onTap() {
         this._counter--;
         this.updateMessage();
-        debugger;
 
+        Raygun.enableRealUserMonitoring(true);
         Raygun.send("Test Error Message");
     }
 

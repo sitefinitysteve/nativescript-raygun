@@ -4,12 +4,23 @@
 
 **nativescript-raygun** is a plugin for NativeScript which adds support for error reporting with [Raygun](https://raygun.io/). The plugin uses the native Raygun SDKs for iOS and Android.
 
+## Requirements
+iOS Deployment target of at least v10.  The plugin adds this to your PodFile
+```
+platform :ios, '10.0'
+```
+
 
 ## Installation
 
 ```bash
 tns plugin add nativescript-raygun
 ```
+
+For typescript add the typings
+
+* Open references.d.ts
+* Add ```/// <reference path="./node_modules/nativescript-raygun/typings/raygun4apple.d.ts" />```
 
 ## Usage
 

@@ -1,0 +1,3 @@
+pod 'raygun4apple'
+
+platform :ios, '10.0'

@@ -1,0 +1,11 @@
+android {
+  
+}
+
+repositories {
+     mavenCentral()
+}
+
+dependencies {
+     implementation "com.raygun:raygun4android:4.+"
+}

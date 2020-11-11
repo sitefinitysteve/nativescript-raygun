@@ -1,0 +1,73 @@
+{
+    "name": "nativescript-raygun",
+    "version": "2.0.0",
+    "description": "Raygun NativeScript SDK",
+    "main": "raygun",
+    "typings": "index.d.ts",
+    "nativescript": {
+        "platforms": {
+            "android": "7.0.0",
+            "ios": "7.0.0"
+        }
+    },
+    "scripts": {
+        "tsc": "tsc -skipLibCheck",
+        "setup": "npm i && ts-patch install",
+        "build": "npm run setup && tsc",
+        "postclone": "npm r && node scripts/postclone.js && cd ../demo && npm r && cd ../src && npm run plugin.link",
+        "test.android": "npm r && npm run tsc && npm run tslint && cd ../demo && ns build android && ns test android --justlaunch",
+        "test.ios": "npm r && npm run tsc && npm run tslint && cd ../demo && ns build ios && ns test ios --justlaunch",
+        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+        "plugin.link": "npm link && cd ../demo && npm link nativescript-raygun && cd ../src",
+        "plugin.unlink": "npm unlink && cd ../demo && npm link nativescript-raygun && cd ../src",
+        "plugin.tscwatch": "npm run tsc -- -w",
+        "demo.ios": "npm run build && cd ../demo && ns run ios",
+        "debug.ios": "npm run build && cd ../demo && ns debug ios",
+        "demo.android": "npm run build && cd ../demo && ns run android",
+        "debug.android": "npm run build && cd ../demo && ns debug android",
+        "demo.reset": "cd ../demo && rimraf platforms",
+        "demo-angular.ios": "npm run build && cd ../demo-angular && ns run ios",
+        "demo-angular.android": "npm run build && cd ../demo-angular && ns run android",
+        "demo-angular.reset": "cd ../demo-angular && rimraf platforms",
+        "demo-vue.ios": "npm run build && cd ../demo-vue && ns run ios",
+        "demo-vue.android": "npm run build && cd ../demo-vue && ns run android",
+        "demo-vue.reset": "cd ../demo-vue && rimraf platforms",
+        "plugin.prepare": "npm run build && cd ../demo && ns plugin remove nativescript-raygun && ns plugin add ../src",
+        "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+        "ci.tslint": "npm r && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+    },
+    "keywords": [
+        "NativeScript",
+        "Raygun",
+        "RaugunIO",
+        "iOS",
+        "Android",
+        "Javascript"
+    ],
+    "author": {
+        "name": "Steve McNiven-Scott",
+        "email": "steve@sitefinitysteve.com"
+    },
+    "bugs": {
+        "url": "https://github.com/sitefinitysteve/nativescript-raygun/issues"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/sitefinitysteve/nativescript-raygun",
+    "readmeFilename": "README.md",
+    "devDependencies": {
+        "@nativescript/core": "~7.0.11",
+        "@nativescript/types": "~7.0.0",
+        "@nativescript/webpack": "~3.0.7",
+        "prompt": "^1.0.0",
+        "rimraf": "^2.5.0",
+        "semver": "^5.5.0",
+        "ts-patch": "^1.3.0",
+        "tslint": "^5.14.0",
+        "typescript": "~4.0.0"
+    },
+    "dependencies": {
+        "@nativescript/appversion": "^2.0.0",
+        "ts-node": "^9.0.0",
+        "typescript-collections": "^1.3.3"
+    }
+}

@@ -27,7 +27,7 @@ export class Raygun extends RaygunCommon {
 
   public static enableRealUserMonitoring(enableNetworkMonitoring: boolean): void {
     var activity = android.startActivity;
-    debugger;
+    
     com.raygun.raygun4android.RaygunClient.enableRUM(activity, enableNetworkMonitoring);
     console.log("Raygun: Enabled Real User Monitoring");
   }
@@ -40,8 +40,9 @@ export class Raygun extends RaygunCommon {
   //SHARED
   public static setUser(identifier: string, email?: string, fullname?: string, firstName?: string, isAnonymous?: boolean, uuid?: string): void {
     console.log("Raygun: Set User");
-    debugger;
-    //var user = new com.raygun.raygun4android.messages.shared.RaygunUserInfo(identifier);
+
+    var user = new com.raygun.raygun4android.messages.shared.RaygunUserInfo(identifier, firstName, fullname, email);
+    com.raygun.raygun4android.RaygunClient.setUser(user);
   }
 
   // REAL USER MONITORING
